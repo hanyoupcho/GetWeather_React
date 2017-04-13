@@ -16,6 +16,7 @@ module.exports = {
       WeatherMessage: 'components/WeatherMessage.jsx',
       About: 'components/About.jsx',
       Examples: 'components/Examples.jsx',
+      openWeatherMap: 'api/openWeatherMap.jsx'
     },
     extensions: ['.js', '.jsx']
   },
