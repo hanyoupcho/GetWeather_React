@@ -11,11 +11,18 @@ var Weather = require('Weather');
 var About = require('About');
 var Examples = require('Examples');
 
+// Load foundation
+require('style-loader!css-loader!foundation-sites/dist/css/foundation.min.css')
+
+// App css
+require('style-loader!css-loader!sass-loader!applicationStyles')
+$(document).foundation();
+
 ReactDOM.render(
   <Router>
     <div>
       <Route path="/" component={Main}/>
-      <hr/>
+
       <Route exact path="/" component={Weather}/>
       <Route path="/about" component={About}/>
       <Route path="/examples" component={Examples}/>

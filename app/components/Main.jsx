@@ -1,15 +1,12 @@
-var React = require('react')
-var Nav = require('Nav');
+import React from 'react';
+import Nav from 'Nav';
 
-var Main = React.createClass({
-  render: function () {
-    return (
-      <div>
-        <Nav/>
-        <h3>Main component</h3>
-      </div>
-    );
-  }
-});
+var Main = (Props) => {
+  return (
+    <div>
+      <Nav/>
+    </div>
+  );
+};
 
 module.exports = Main;

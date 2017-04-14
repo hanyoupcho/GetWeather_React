@@ -7,16 +7,16 @@ module.exports = {
     var encodedLocation = encodeURIComponent(location);
     var requestUrl = `${OPEN_WEATHER_MAP_URL}&q=${encodedLocation}`;
 
-    axios.get(requestUrl)
-      .then(function (response) {
-        if (response.data.cod && response.data.message) {
-          throw new Error(response.data.message);
-        } else {
-          return response.data.main.temp;
+    return axios.get(requestUrl)
+      .then(response => {
+        if (response.data.count == 0) {
+          throw new Error('City not found');
+        } else if (response.data.cod == 200 && response.data.count > 0) {
+          return response.data.list[0].main.temp;
         }
       })
-      .catch(function (error) {
-        throw new Error(response.data.message);
+      .catch(error => {
+        throw new Error('City not found');
       });
   }
 };
